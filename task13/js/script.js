@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Timer 
 
-    let deadline = '2018-11-21';
+    let deadline = '2020-06-28';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -90,7 +90,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
     let more = document.querySelector('.more'),
         overlay = document.querySelector('.overlay'),
-        close = document.querySelector('.popup-close');
+        close = document.querySelector('.popup-close'),
+        infoBtn = document.querySelector('.info');
 
     more.addEventListener('click', function() {
         overlay.style.display = 'block';
@@ -102,6 +103,14 @@ window.addEventListener('DOMContentLoaded', function() {
         overlay.style.display = 'none';
         more.classList.remove('more-splash');
         document.body.style.overflow = '';
+    });
+
+    infoBtn.addEventListener('click', function(event){
+        if (event.target && event.target.classList.contains('description-btn')){
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
+        }
     });
 
 // ======================================== FORM
